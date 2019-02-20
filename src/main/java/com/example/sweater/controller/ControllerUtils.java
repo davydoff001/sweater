@@ -6,6 +6,7 @@
 package com.example.sweater.controller;
 
 import java.util.Map;
+import java.util.TreeMap;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import org.springframework.validation.BindingResult;
@@ -21,6 +22,6 @@ public class ControllerUtils {
                 fieldError -> fieldError.getField()+"Error",
                 FieldError::getDefaultMessage
         );
-        return bindingResult.getFieldErrors().stream().collect(collector);
+        return bindingResult.getFieldErrors().stream().collect(collector);       
     }
 }
