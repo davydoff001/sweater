@@ -1,12 +1,17 @@
 package com.example.sweater.repos;
 
 import com.example.sweater.domain.Message;
+import com.example.sweater.domain.User;
 import org.springframework.data.repository.CrudRepository;
-
-import java.util.List;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 public interface MessageRepo extends CrudRepository<Message, Long> {
 
-    List<Message> findByTag(String tag);
+    Page<Message> findAll(Pageable pageable);
+    
+    Page<Message> findByTag(String tag, Pageable pageable);
+    
+    Page<Message> findByAuthor(User user, Pageable pageble);
 
 }
